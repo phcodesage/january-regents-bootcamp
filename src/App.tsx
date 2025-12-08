@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Phone, Mail, Globe } from 'lucide-react';
+import { Phone, Mail, Globe, ClipboardList, Lightbulb, BrainCircuit, Bell } from 'lucide-react';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,7 +60,7 @@ function App() {
           <div className="max-w-md w-full space-y-8 text-center">
             {/* Call to Action */}
             <div className="space-y-4">
-              <h1 className="text-3xl lg:text-4xl font-bold text-exceed-red italic-heading">
+              <h1 className="text-3xl lg:text-4xl font-bold text-bright-red italic-heading">
                 RESERVE YOUR<br />SPOT TODAY!
               </h1>
               <p className="text-white text-base">
@@ -190,6 +190,172 @@ function App() {
                   Only $99 per session
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 2: Unlocking Potential & Schedule */}
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        {/* Left Panel - Unlocking Potential (Red) */}
+        <div className="w-full lg:w-1/3 bg-exceed-red p-8 lg:p-12 text-white flex flex-col justify-center relative z-10">
+          <div className="absolute top-0 right-0 w-full h-20 bg-navy lg:hidden"></div>
+          <div className="absolute top-0 right-0 w-24 h-24 bg-exceed-red z-10 rounded-tr-[100px] hidden lg:block"></div>
+
+          <div className="space-y-12">
+            <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+              Unlocking<br />
+              Potential at<br />
+              Exceed Learning<br />
+              Center
+            </h2>
+
+            {/* Dots Decoration */}
+            <div className="flex space-x-2">
+              <div className="w-4 h-4 rounded-full bg-navy"></div>
+              <div className="w-4 h-4 rounded-full bg-navy"></div>
+              <div className="w-4 h-4 rounded-full bg-navy"></div>
+            </div>
+
+            <div className="space-y-8">
+              {/* Proven Results */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <ClipboardList className="w-12 h-12 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Proven Results</h3>
+                  <p className="text-sm opacity-90 leading-relaxed">
+                    Join a program with a strong track record of academic excellence. Students consistently see measurable improvement and often exceed their academic goals.
+                  </p>
+                </div>
+              </div>
+
+              {/* Personalized Approach */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <Lightbulb className="w-12 h-12 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Personalized Approach</h3>
+                  <p className="text-sm opacity-90 leading-relaxed">
+                    Our tutors tailor instruction to each student's strengths, challenges, and learning style to maximize understanding and confidence.
+                  </p>
+                </div>
+              </div>
+
+              {/* Holistic Development */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <BrainCircuit className="w-12 h-12 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Holistic Development</h3>
+                  <p className="text-sm opacity-90 leading-relaxed">
+                    We nurture critical thinking, problem-solving abilities, strong study habits, and a genuine love for learning.
+                  </p>
+                </div>
+              </div>
+
+              {/* Regular Progress Updates */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <Bell className="w-12 h-12 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Regular Progress Updates</h3>
+                  <p className="text-sm opacity-90 leading-relaxed">
+                    Parents and students stay informed through ongoing feedback and detailed progress updates, ensuring transparency and shared success.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section - Image & Schedule */}
+        <div className="w-full lg:w-2/3 flex flex-col">
+          {/* Top Image */}
+          <div className="h-64 lg:h-80 w-full relative bg-navy">
+            {/* Curve filler */}
+            <div className="absolute bottom-0 left-0 w-full h-full lg:w-32 lg:h-full bg-exceed-red lg:bg-transparent">
+              <div className="absolute top-0 left-0 w-full h-full bg-navy lg:rounded-bl-[100px]"></div>
+            </div>
+
+            <div className="absolute inset-0 lg:left-0 z-10 overflow-hidden lg:rounded-bl-[0px]">
+              <img
+                src="https://images.pexels.com/photos/5965839/pexels-photo-5965839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Students writing"
+                className="w-full h-full object-cover lg:rounded-bl-[80px]"
+              />
+            </div>
+          </div>
+
+          {/* Schedule Grid */}
+          <div className="flex flex-col lg:flex-row flex-grow">
+            {/* Navy Column */}
+            <div className="w-full lg:w-1/2 bg-navy p-8 lg:p-12 flex flex-col justify-center items-center text-center space-y-8">
+              <h2 className="text-4xl lg:text-5xl font-bold text-exceed-red leading-tight">
+                BOOT<br />CAMP<br />SCHEDULE
+              </h2>
+
+              <div className="space-y-8 w-full">
+                {/* Jan 18 */}
+                <div className="space-y-2">
+                  <div className="inline-block bg-white text-navy px-6 py-2 rounded-lg font-bold text-lg shadow-lg">
+                    January 18 (9am–12pm)
+                  </div>
+                  <h4 className="text-white text-xl font-semibold mt-2">Math Mastery Boot Camp</h4>
+                  <p className="text-white opacity-80">Algebra 1 • Algebra 2 • Geometry</p>
+                </div>
+
+                {/* Jan 19 */}
+                <div className="space-y-2">
+                  <div className="inline-block bg-white text-navy px-6 py-2 rounded-lg font-bold text-lg shadow-lg">
+                    January 19 (3–6pm)
+                  </div>
+                  <h4 className="text-white text-xl font-semibold mt-2">Math Mastery Boot Camp</h4>
+                  <p className="text-white opacity-80">Algebra 1 • Algebra 2 • Geometry</p>
+                </div>
+              </div>
+            </div>
+
+            {/* White Column */}
+            <div className="w-full lg:w-1/2 bg-white p-8 lg:p-12 flex flex-col justify-center items-center text-center space-y-12">
+
+              {/* Jan 20 - Session 1 */}
+              <div className="space-y-2 w-full">
+                <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
+                  January 20 (4–7pm)
+                </div>
+                <h4 className="text-navy text-xl font-semibold mt-3">Physics</h4>
+              </div>
+
+              {/* Jan 20 - Session 2 */}
+              <div className="space-y-2 w-full">
+                <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
+                  January 20 (4–7pm)
+                </div>
+                <h4 className="text-navy text-xl font-semibold mt-3">Algebra • Geometry</h4>
+              </div>
+
+              {/* Jan 20 - Session 3 */}
+              <div className="space-y-2 w-full">
+                <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
+                  January 20 (4–7pm)
+                </div>
+                <h4 className="text-navy text-xl font-semibold mt-3">Algebra • Geometry</h4>
+              </div>
+
+              {/* Jan 20 - Session 4 */}
+              <div className="space-y-2 w-full">
+                <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
+                  January 20 (4–7pm)
+                </div>
+                <h4 className="text-navy text-xl font-semibold mt-3">Earth Science</h4>
+                <p className="text-navy opacity-80">Earth & Space Science</p>
+              </div>
+
             </div>
           </div>
         </div>
