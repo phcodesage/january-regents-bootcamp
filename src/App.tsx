@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Phone, Mail, Globe, ClipboardList, Lightbulb, BrainCircuit, Bell } from 'lucide-react';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
             {/* Student Studying Image with Border */}
             <div className="relative w-64 h-48 mx-auto overflow-hidden border-4 border-purple-500 rounded-lg shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="src/assets/1.png"
                 alt="Students studying"
                 className="w-full h-full object-cover"
               />
@@ -44,9 +44,9 @@ function App() {
           <div className="mt-12 lg:mt-0 relative z-10">
             <div className="relative overflow-hidden rounded-tl-[80px] shadow-2xl border-4 border-white">
               <img
-                src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="src/assets/2.png"
                 alt="Group of happy students"
-                className="w-full h-56 object-cover"
+                className="w-full h-auto lg:h-80 object-cover object-top"
               />
             </div>
           </div>
@@ -130,26 +130,38 @@ function App() {
             }`}
         >
           {/* Pricing Badge - Top Right */}
-          <div className="absolute top-8 right-8 z-20">
-            <div className="relative w-32 h-32">
-              <svg className="w-full h-full" viewBox="0 0 100 100">
-                {/* Starburst shape */}
-                <circle cx="50" cy="50" r="45" fill="#ca3433" />
-                {[...Array(12)].map((_, i) => (
-                  <path
-                    key={i}
-                    d={`M50,50 L${50 + 48 * Math.cos((i * 30 * Math.PI) / 180)},${50 + 48 * Math.sin((i * 30 * Math.PI) / 180)
-                      } L${50 + 48 * Math.cos(((i + 1) * 30 * Math.PI) / 180)},${50 + 48 * Math.sin(((i + 1) * 30 * Math.PI) / 180)
-                      } Z`}
-                    fill="#ff5757"
-                  />
-                ))}
-                <circle cx="50" cy="50" r="35" fill="#ca3433" />
+          <div className="absolute top-8 right-8 z-20 transform rotate-12 transition-transform hover:rotate-0 duration-300">
+            <div className="relative w-40 h-40">
+              <svg className="w-full h-full drop-shadow-xl" viewBox="0 0 100 100">
+                <path
+                  d={useMemo(() => {
+                    const points = 16;
+                    const innerRadius = 38; // Increased for fuller look
+                    const outerRadius = 50;
+                    const centerX = 50;
+                    const centerY = 50;
+                    let path = "";
+
+                    for (let i = 0; i < points * 2; i++) {
+                      const angle = (i * Math.PI) / points;
+                      const r = i % 2 === 0 ? outerRadius : innerRadius;
+                      const x = centerX + r * Math.sin(angle);
+                      const y = centerY - r * Math.cos(angle);
+                      path += `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
+                    }
+                    path += "Z";
+                    return path;
+                  }, [])}
+                  fill="#ca3433"
+                  stroke="white"
+                  strokeWidth="3"
+                  strokeLinejoin="round"
+                />
               </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-sm font-semibold">only</div>
-                  <div className="text-3xl font-bold">$99!</div>
+              <div className="absolute inset-0 flex items-center justify-center -rotate-12">
+                <div className="text-white text-center leading-none shadow-black/20 drop-shadow-md">
+                  <div className="text-xl font-bold font-sans tracking-wide mb-1">Only</div>
+                  <div className="text-5xl font-extrabold font-sans tracking-tighter">$99!</div>
                 </div>
               </div>
             </div>
@@ -162,7 +174,7 @@ function App() {
                 <div className="absolute inset-0 bg-white rounded-full"></div>
                 <div className="absolute inset-3 overflow-hidden rounded-full shadow-2xl">
                   <img
-                    src="https://images.pexels.com/photos/4145354/pexels-photo-4145354.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="src/assets/3.png"
                     alt="Students studying together"
                     className="w-full h-full object-cover"
                   />
@@ -276,17 +288,17 @@ function App() {
         {/* Right Section - Image & Schedule */}
         <div className="w-full lg:w-2/3 flex flex-col">
           {/* Top Image */}
-          <div className="h-64 lg:h-80 w-full relative bg-navy">
+          <div className="w-full relative bg-navy lg:h-[28rem]">
             {/* Curve filler */}
             <div className="absolute bottom-0 left-0 w-full h-full lg:w-32 lg:h-full bg-exceed-red lg:bg-transparent">
               <div className="absolute top-0 left-0 w-full h-full bg-navy lg:rounded-bl-[100px]"></div>
             </div>
 
-            <div className="absolute inset-0 lg:left-0 z-10 overflow-hidden lg:rounded-bl-[0px]">
+            <div className="relative z-10 overflow-hidden lg:absolute lg:inset-0 lg:left-0 lg:rounded-bl-[0px]">
               <img
-                src="https://images.pexels.com/photos/5965839/pexels-photo-5965839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="src/assets/4.png"
                 alt="Students writing"
-                className="w-full h-full object-cover lg:rounded-bl-[80px]"
+                className="w-full h-auto lg:h-full object-cover object-bottom lg:rounded-bl-[80px]"
               />
             </div>
           </div>
