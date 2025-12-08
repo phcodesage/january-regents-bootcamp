@@ -1,5 +1,9 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Phone, Mail, Globe, ClipboardList, Lightbulb, BrainCircuit, Bell } from 'lucide-react';
+import img1 from './assets/1.png';
+import img2 from './assets/2.png';
+import img3 from './assets/3.png';
+import img4 from './assets/4.png';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +27,7 @@ function App() {
             {/* Student Studying Image with Border */}
             <div className="relative w-64 h-48 mx-auto overflow-hidden border-4 border-purple-500 rounded-lg shadow-2xl">
               <img
-                src="src/assets/1.png"
+                src={img1}
                 alt="Students studying"
                 className="w-full h-full object-cover"
               />
@@ -44,7 +48,7 @@ function App() {
           <div className="mt-12 lg:mt-0 relative z-10">
             <div className="relative overflow-hidden rounded-tl-[80px] shadow-2xl border-4 border-white">
               <img
-                src="src/assets/2.png"
+                src={img2}
                 alt="Group of happy students"
                 className="w-full h-auto lg:h-80 object-cover object-top"
               />
@@ -174,7 +178,7 @@ function App() {
                 <div className="absolute inset-0 bg-white rounded-full"></div>
                 <div className="absolute inset-3 overflow-hidden rounded-full shadow-2xl">
                   <img
-                    src="src/assets/3.png"
+                    src={img3}
                     alt="Students studying together"
                     className="w-full h-full object-cover"
                   />
@@ -296,7 +300,7 @@ function App() {
 
             <div className="relative z-10 overflow-hidden lg:absolute lg:inset-0 lg:left-0 lg:rounded-bl-[0px]">
               <img
-                src="src/assets/4.png"
+                src={img4}
                 alt="Students writing"
                 className="w-full h-auto lg:h-full object-cover object-bottom lg:rounded-bl-[80px]"
               />
