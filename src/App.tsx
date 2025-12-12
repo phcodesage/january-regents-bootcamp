@@ -1,16 +1,49 @@
 import { useEffect, useState, useMemo } from 'react';
-import { Phone, Mail, Globe, ClipboardList, Lightbulb, BrainCircuit, Bell } from 'lucide-react';
+import { Phone, Mail, Globe, ClipboardList, Lightbulb, BrainCircuit, Bell, X, ChevronRight } from 'lucide-react';
 import img1 from './assets/1.png';
 import img2 from './assets/2.png';
 import img3 from './assets/3.png';
 import img4 from './assets/4.png';
 
+const SUBJECTS = [
+  { id: 'math-jan18', name: 'Math Mastery', details: 'Algebra 1 • Algebra 2 • Geometry', date: 'January 18', time: '9am–12pm' },
+  { id: 'math-jan19', name: 'Math Mastery', details: 'Algebra 1 • Algebra 2 • Geometry', date: 'January 19', time: '3–6pm' },
+  { id: 'physics-jan20', name: 'Physics', details: 'Physics Regents Prep', date: 'January 20', time: '4–7pm' },
+  { id: 'algebra-geo-jan20', name: 'Algebra & Geometry', details: 'Algebra • Geometry', date: 'January 20', time: '4–7pm' },
+  { id: 'earth-science-jan20', name: 'Earth Science', details: 'Earth & Space Science', date: 'January 20', time: '4–7pm' },
+];
+
+const PAYMENT_LINK = 'https://buy.stripe.com/fZuaEQ4q09se8O5eAXdfG08';
+
 function App() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    setSelectedSubject(null);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedSubject(null);
+  };
+
+  const handleSelectSubject = (subjectId: string) => {
+    setSelectedSubject(subjectId);
+  };
+
+  const handleProceedToPayment = () => {
+    if (selectedSubject) {
+      window.open(PAYMENT_LINK, '_blank');
+      handleCloseModal();
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -126,22 +159,18 @@ function App() {
               </div>
 
               {/* Stripe Payment Button */}
-              <a
-                href="https://buy.stripe.com/fZuaEQ4q09se8O5eAXdfG08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full"
+              <button
+                onClick={handleOpenModal}
+                className="w-full bg-gradient-to-r from-exceed-red to-red-600 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 hover:from-red-600 hover:to-exceed-red relative overflow-hidden group"
               >
-                <button className="w-full bg-gradient-to-r from-exceed-red to-red-600 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 hover:from-red-600 hover:to-exceed-red relative overflow-hidden group">
-                  <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>REGISTER NOW</span>
-                    <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </button>
-              </a>
+                <span className="relative z-10 flex items-center justify-center space-x-2">
+                  <span>REGISTER NOW</span>
+                  <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </button>
             </div>
           </div>
         </div>
@@ -394,7 +423,94 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Subject Selection Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={handleCloseModal}
+          ></div>
+
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-hidden animate-in zoom-in-95 duration-300">
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-exceed-red to-red-600 p-6 text-white relative">
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <h2 className="text-2xl font-bold">Select Your Boot Camp Session</h2>
+              <p className="text-white/90 mt-1">Choose a subject to continue with registration</p>
+            </div>
+
+            {/* Subject List */}
+            <div className="p-4 max-h-[60vh] overflow-y-auto">
+              <div className="space-y-3">
+                {SUBJECTS.map((subject) => (
+                  <button
+                    key={subject.id}
+                    onClick={() => handleSelectSubject(subject.id)}
+                    className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${selectedSubject === subject.id
+                        ? 'border-exceed-red bg-red-50 shadow-lg'
+                        : 'border-gray-200 hover:border-exceed-red/50 hover:bg-gray-50'
+                      }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedSubject === subject.id
+                              ? 'border-exceed-red bg-exceed-red'
+                              : 'border-gray-300'
+                            }`}>
+                            {selectedSubject === subject.id && (
+                              <div className="w-2 h-2 rounded-full bg-white"></div>
+                            )}
+                          </div>
+                          <h3 className="font-bold text-navy text-lg">{subject.name}</h3>
+                        </div>
+                        <p className="text-gray-600 text-sm mt-1 ml-8">{subject.details}</p>
+                        <div className="flex items-center gap-2 mt-2 ml-8">
+                          <span className="bg-navy text-white text-xs px-2 py-1 rounded-full font-medium">
+                            {subject.date}
+                          </span>
+                          <span className="bg-exceed-red/10 text-exceed-red text-xs px-2 py-1 rounded-full font-medium">
+                            {subject.time}
+                          </span>
+                        </div>
+                      </div>
+                      <ChevronRight className={`w-5 h-5 transition-colors ${selectedSubject === subject.id ? 'text-exceed-red' : 'text-gray-300'
+                        }`} />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-gray-100 bg-gray-50">
+              <button
+                onClick={handleProceedToPayment}
+                disabled={!selectedSubject}
+                className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${selectedSubject
+                    ? 'bg-gradient-to-r from-exceed-red to-red-600 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+              >
+                <span>Proceed to Payment</span>
+                <span className="text-xl">→</span>
+              </button>
+              <p className="text-center text-gray-500 text-sm mt-2">
+                Only $99 per session
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div >
   );
 }
 
