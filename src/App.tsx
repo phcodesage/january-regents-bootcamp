@@ -111,11 +111,11 @@ function App() {
             {/* White Card with Logo and Contact Info */}
             <div className="bg-white rounded-3xl p-8 shadow-2xl space-y-6">
               {/* Logo */}
-              <div className="mx-auto max-w-xs">
+              <div className="mx-auto max-w-xs flex justify-center">
                 <img
-                  src="https://lirp.cdn-website.com/3bba8822/dms3rep/multi/opt/Exceed-learning-center-1920w.png"
+                  src="/logo.png"
                   alt="Exceed Learning Center"
-                  className="w-full h-auto"
+                  className="w-auto h-auto max-h-48"
                 />
               </div>
 
@@ -455,16 +455,16 @@ function App() {
                     key={subject.id}
                     onClick={() => handleSelectSubject(subject.id)}
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${selectedSubject === subject.id
-                        ? 'border-exceed-red bg-red-50 shadow-lg'
-                        : 'border-gray-200 hover:border-exceed-red/50 hover:bg-gray-50'
+                      ? 'border-exceed-red bg-red-50 shadow-lg'
+                      : 'border-gray-200 hover:border-exceed-red/50 hover:bg-gray-50'
                       }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
                           <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedSubject === subject.id
-                              ? 'border-exceed-red bg-exceed-red'
-                              : 'border-gray-300'
+                            ? 'border-exceed-red bg-exceed-red'
+                            : 'border-gray-300'
                             }`}>
                             {selectedSubject === subject.id && (
                               <div className="w-2 h-2 rounded-full bg-white"></div>
@@ -496,8 +496,8 @@ function App() {
                 onClick={handleProceedToPayment}
                 disabled={!selectedSubject}
                 className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${selectedSubject
-                    ? 'bg-gradient-to-r from-exceed-red to-red-600 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
-                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  ? 'bg-gradient-to-r from-exceed-red to-red-600 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
               >
                 <span>Proceed to Payment</span>
