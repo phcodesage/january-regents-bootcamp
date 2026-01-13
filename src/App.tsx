@@ -108,6 +108,20 @@ function App() {
               </p>
             </div>
 
+            {/* Stripe Payment Button - Moved to Top */}
+            <button
+              onClick={handleOpenModal}
+              className="w-full bg-gradient-to-r from-exceed-red to-red-600 text-white font-bold text-2xl py-6 px-10 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 hover:from-red-600 hover:to-exceed-red relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center justify-center space-x-3">
+                <span>REGISTER NOW</span>
+                <svg className="w-8 h-8 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </button>
+
             {/* White Card with Logo and Contact Info */}
             <div className="bg-white rounded-3xl p-8 shadow-2xl space-y-6">
               {/* Logo */}
@@ -158,19 +172,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Stripe Payment Button */}
-              <button
-                onClick={handleOpenModal}
-                className="w-full bg-gradient-to-r from-exceed-red to-red-600 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 hover:from-red-600 hover:to-exceed-red relative overflow-hidden group"
-              >
-                <span className="relative z-10 flex items-center justify-center space-x-2">
-                  <span>REGISTER NOW</span>
-                  <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-              </button>
+
             </div>
           </div>
         </div>
