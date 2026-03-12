@@ -6,11 +6,11 @@ import img3 from './assets/3.png';
 import img4 from './assets/4.png';
 
 const SUBJECTS = [
-  { id: 'math-jan18', name: 'Math Mastery', details: 'Algebra 1 • Algebra 2 • Geometry', date: 'January 18', time: '9am–12pm' },
-  { id: 'math-jan19', name: 'Math Mastery', details: 'Algebra 1 • Algebra 2 • Geometry', date: 'January 19', time: '3–6pm' },
-  { id: 'physics-jan20', name: 'Physics', details: 'Physics Regents Prep', date: 'January 20', time: '4–7pm' },
-  { id: 'algebra-geo-jan20', name: 'Algebra & Geometry', details: 'Algebra • Geometry', date: 'January 20', time: '4–7pm' },
-  { id: 'earth-science-jan20', name: 'Earth Science', details: 'Earth & Space Science', date: 'January 20', time: '4–7pm' },
+  { id: 'practice-june7', name: 'Practice Exam Day', details: 'Full Regents-style timed practice', date: 'June 7', time: 'Practice exam day' },
+  { id: 'math-june8', name: 'Math Mastery', details: 'Algebra 1 • Algebra 2 • Geometry', date: 'June 8', time: 'Free bootcamp' },
+  { id: 'physics-june8', name: 'Physics', details: 'Physics Regents Prep', date: 'June 8', time: 'Free bootcamp' },
+  { id: 'algebra-geo-june9', name: 'Algebra & Geometry', details: 'Algebra • Geometry', date: 'June 9', time: 'Free bootcamp' },
+  { id: 'earth-science-june9', name: 'Earth Science', details: 'Earth & Space Science', date: 'June 9', time: 'Free bootcamp' },
 ];
 
 const PAYMENT_LINK = 'https://buy.stripe.com/fZuaEQ4q09se8O5eAXdfG08';
@@ -104,7 +104,7 @@ function App() {
                 Seats fill fast.
               </p>
               <p className="text-white text-base">
-                Secure your boot camp session now and walk into the Regents with confidence.
+                June 7 is Practice Exam Day, and June 8-9 are free Regents bootcamps.
               </p>
             </div>
 
@@ -244,15 +244,15 @@ function App() {
               </div>
 
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                JANUARY<br />REGENTS<br />BOOT CAMPS
+                JUNE<br />REGENTS<br />BOOT CAMPS
               </h2>
 
               <div className="space-y-2">
                 <p className="text-white text-lg font-semibold">
-                  Ace Your Exams in Just 3 Hours
+                  Practice on June 7, then join free bootcamps June 8-9
                 </p>
                 <p className="text-white text-base">
-                  Only $99 per session
+                  Only $99 per session (June 8-9 bootcamps are free)
                 </p>
               </div>
             </div>
@@ -365,22 +365,22 @@ function App() {
               </h2>
 
               <div className="space-y-8 w-full">
-                {/* Jan 18 */}
+                {/* June 7 */}
                 <div className="space-y-2">
                   <div className="inline-block bg-white text-navy px-6 py-2 rounded-lg font-bold text-lg shadow-lg">
-                    January 18 (9am–12pm)
+                    June 7 (Practice Exam Day)
                   </div>
-                  <h4 className="text-white text-xl font-semibold mt-2">Math Mastery Boot Camp</h4>
-                  <p className="text-white opacity-80">Algebra 1 • Algebra 2 • Geometry</p>
+                  <h4 className="text-white text-xl font-semibold mt-2">Practice Exam Day</h4>
+                  <p className="text-white opacity-80">Full Regents-style timed practice</p>
                 </div>
 
-                {/* Jan 19 */}
+                {/* June 8 */}
                 <div className="space-y-2">
                   <div className="inline-block bg-white text-navy px-6 py-2 rounded-lg font-bold text-lg shadow-lg">
-                    January 19 (3–6pm)
+                    June 8 (Free Bootcamp)
                   </div>
                   <h4 className="text-white text-xl font-semibold mt-2">Math Mastery Boot Camp</h4>
-                  <p className="text-white opacity-80">Algebra 1 • Algebra 2 • Geometry</p>
+                  <p className="text-white opacity-80">Algebra 1 • Algebra 2 • Geometry and Physics</p>
                 </div>
               </div>
             </div>
@@ -388,34 +388,34 @@ function App() {
             {/* White Column */}
             <div className="w-full lg:w-1/2 bg-white p-8 lg:p-12 flex flex-col justify-center items-center text-center space-y-12">
 
-              {/* Jan 20 - Session 1 */}
+              {/* June 8 - Session 1 */}
               <div className="space-y-2 w-full">
                 <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
-                  January 20 (4–7pm)
+                  June 8 (Free Bootcamp)
                 </div>
                 <h4 className="text-navy text-xl font-semibold mt-3">Physics</h4>
               </div>
 
-              {/* Jan 20 - Session 2 */}
+              {/* June 9 - Session 2 */}
               <div className="space-y-2 w-full">
                 <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
-                  January 20 (4–7pm)
+                  June 9 (Free Bootcamp)
                 </div>
                 <h4 className="text-navy text-xl font-semibold mt-3">Algebra • Geometry</h4>
               </div>
 
-              {/* Jan 20 - Session 3 */}
+              {/* June 9 - Session 3 */}
               <div className="space-y-2 w-full">
                 <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
-                  January 20 (4–7pm)
+                  June 9 (Free Bootcamp)
                 </div>
                 <h4 className="text-navy text-xl font-semibold mt-3">Algebra • Geometry</h4>
               </div>
 
-              {/* Jan 20 - Session 4 */}
+              {/* June 9 - Session 4 */}
               <div className="space-y-2 w-full">
                 <div className="inline-block bg-exceed-red text-white px-6 py-2 rounded-lg font-bold text-xl shadow-lg">
-                  January 20 (4–7pm)
+                  June 9 (Free Bootcamp)
                 </div>
                 <h4 className="text-navy text-xl font-semibold mt-3">Earth Science</h4>
                 <p className="text-navy opacity-80">Earth & Space Science</p>
@@ -446,7 +446,7 @@ function App() {
                 <X className="w-6 h-6" />
               </button>
               <h2 className="text-2xl font-bold">Select Your Boot Camp Session</h2>
-              <p className="text-white/90 mt-1">Choose a subject to continue with registration</p>
+              <p className="text-white/90 mt-1">Choose a June session to continue with registration</p>
             </div>
 
             {/* Subject List */}
@@ -506,7 +506,7 @@ function App() {
                 <span className="text-xl">→</span>
               </button>
               <p className="text-center text-gray-500 text-sm mt-2">
-                Only $99 per session
+                Only $99 per session (June 8 and June 9 bootcamps are free)
               </p>
             </div>
           </div>
