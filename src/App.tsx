@@ -164,10 +164,10 @@ function App() {
                 <div className="flex items-start space-x-3">
                   <Mail className="w-5 h-5 text-navy flex-shrink-0 mt-1" />
                   <a
-                    href="mailto:regents@exceedlearningcenterny.com"
+                    href="mailto:teenprograms@exceedlearningcenterny.com"
                     className="text-navy hover:text-exceed-red transition-colors break-words text-sm"
                   >
-                    regents@exceedlearningcenterny.com
+                    teenprograms@exceedlearningcenterny.com
                   </a>
                 </div>
               </div>
